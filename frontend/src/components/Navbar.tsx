@@ -1,8 +1,9 @@
-import { BarChart3, Building2, Car, ClipboardList, LayoutDashboard, Moon, Settings, Smartphone, Sun } from "lucide-react";
+import { BarChart3, Building2, Car, ClipboardList, Compass, LayoutDashboard, Moon, Settings, Smartphone, Sun } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import type { DisplayMode } from "../types/themeTypes";
 
 const navItems = [
+  { label: "Intro", href: "/intro", icon: Compass },
   { label: "Quote", href: "/quote", icon: ClipboardList },
   { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { label: "Devices", href: "/estimators/mobile", icon: Smartphone },

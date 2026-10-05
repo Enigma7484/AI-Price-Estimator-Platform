@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import CarEstimator from "./pages/CarEstimator";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
+import IntroPage from "./pages/IntroPage";
 import HousingEstimator from "./pages/HousingEstimator";
 import MobileEstimator from "./pages/MobileEstimator";
 import Settings from "./pages/Settings";
 import type { DisplayMode, VisualTheme } from "./types/themeTypes";
 
 export default function App() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    if (!window.location.hash) window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [pathname]);
   const [mode, setMode] = useState<DisplayMode>(() => {
     const savedMode = localStorage.getItem("estimator.mode");
     if (savedMode === "light" || savedMode === "dark") {
@@ -43,6 +48,10 @@ export default function App() {
 
   function toggleMode() {
     setMode((currentMode) => (currentMode === "dark" ? "light" : "dark"));
+  }
+
+  if (pathname === "/intro" || pathname === "/intro/") {
+    return <IntroPage mode={mode} onToggleMode={toggleMode} />;
   }
 
   return (

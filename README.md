@@ -1,5 +1,11 @@
 # AI Estimator Platform
 
+## ResaleIQ introduction
+
+Open `/intro` for a public introduction to the trade-in quote workflow, or choose **Intro** in the app navigation. It includes an interactive tour with clearly labeled fictional USD examples; tour actions never call the prediction API or save actual quotes. The existing `/`, `/quote`, `/dashboard`, and estimator routes remain available.
+
+The intro follows the current display mode and visual theme. Live quotes require the backend and trained models; saved quote history is browser-local. Laptop valuation and a dedicated used-phone resale model are labeled as planned capabilities.
+
 AI Estimator Platform is a full-stack applied ML product for real-world prediction workflows. Phase 1 ships a Housing Price Estimator with a trained scikit-learn regression model, FastAPI inference service, and a polished React dashboard UI.
 
 This is structured as an extensible estimator platform, not a notebook. New estimators can be added through dedicated training scripts, saved model artifacts, Pydantic schemas, FastAPI routes, services, and frontend pages.
